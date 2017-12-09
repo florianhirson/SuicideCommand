@@ -52,10 +52,11 @@ public partial class InventorySorting: ModInterface
                     if (ci.msg.StartsWith("/suicide"))
                     {
                         int playerId = ci.playerId;
-                        LogFile("chat.txt", "Player " + playerId + "commited suicide");
+                        LogFile("chat.txt", "Player " + playerId + " commited suicide");
                         GameAPI.Game_Request(CmdId.Request_Player_SetPlayerInfo, 2015, new PlayerInfoSet()
                         {
-                            health = 0
+                            entityId = playerId,
+                            health = 0,
                         });
                         
                     }
